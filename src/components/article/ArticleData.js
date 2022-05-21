@@ -4,6 +4,7 @@ import './../../styles/article.scss'
 import ArticleElements from './ArticleElements';
 
 export default class ArticleData extends Component {
+
     constructor(props){
         super(props)
         this.state={
@@ -28,10 +29,10 @@ export default class ArticleData extends Component {
                 let articleData = await articleResponse.json();
                 this.setState({ article: articleData, loading: false });
             } else {
-                this.setState({ error: true, errorMessage: "The JSON could not be obtained", loading: false });
+                this.setState({ error: true, errorMessage: "The article data could not be fetched due to an error", loading: false });
             }
-        } catch (error) {
-            this.setState({ error: true, errorMessage: "There is a server error obtaining article JSON", loading: false })
+        } catch (err) {
+            this.setState({ error: true, errorMessage: `There is a server error while fetching article JSON ${err}`, loading: false })
         }
 
     }

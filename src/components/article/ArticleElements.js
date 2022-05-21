@@ -20,22 +20,23 @@ export default class ArticleElements extends Component {
     let mainImgGroup = "";
 
     if(elementsToRender){
-        heading = elementsToRender?.heading?.value;
-        author = elementsToRender?.author?.value;
+        heading = elementsToRender?.heading?.value ? elementsToRender?.heading?.value:"";
+        author = elementsToRender?.author?.value ?  elementsToRender?.author?.value:"";
         date = convertDatesToRequiredFormat(new Date(elementsToRender?.date?.value));
-        body = elementsToRender.body?.values? elementsToRender.body?.values:[];
-        mainImgGroup = elementsToRender?.mainImage?.value?elementsToRender?.mainImage?.value:{};
+        body = elementsToRender.body?.values ? elementsToRender.body?.values:[];
+        mainImgGroup = elementsToRender?.mainImage?.value ? elementsToRender?.mainImage?.value:"";
     }
 
     return (
-       <div className='articleElements'>
-           <h3 className="articleHeading">{heading}</h3>
-           <div className="articlePublisherDetails">
-               <span className="publishedClass">by : </span> 
-               <i className='authorName'> {author} </i> on {date}
-           </div>
-           <ArticleBody body={body}/>
-           <ArticleImages imageGroupPassed = {mainImgGroup}/>
+       <div className="articleElements">
+           {heading!="" ? <h3 className="articleHeading">{heading}</h3>:""}
+           {author!="" ?
+              <div className="articlePublisherDetails">
+                 <span className="publishedClass">by : </span> 
+                 <i className='authorName'> {author} </i> on {date}
+              </div> :""}
+           {body.length>0 ? <ArticleBody body={body}/>:""}
+           {mainImgGroup!="" ? <ArticleImages imageGroupPassed = {mainImgGroup}/> :""}
        </div>
     )
   }

@@ -7,7 +7,6 @@
 .articleName{
     color:black;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
 
 }
 
@@ -29,7 +28,7 @@
 .articlePublisherDetails{
     text-align: center;
     margin-left: 1%;
-    margin-top: 1%;
+    margin-top: 4px;
 }
 
 .articleBodyContent{
@@ -61,4 +60,7 @@
 
 .lead-image-container{
     display: contents;
+    text-align: center;
+    max-height: 100px;
+    height: 100px;
 }

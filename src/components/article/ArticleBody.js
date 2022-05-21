@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DOMPurify from 'dompurify';
+
 export default class ArticleBody extends Component {
  constructor(props){
      super(props)
