@@ -3,7 +3,7 @@ import Home from './components/Home';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
-import Article from './components/Article';
+import Article from './components/article/Article';
 
 function App() {
   return (
