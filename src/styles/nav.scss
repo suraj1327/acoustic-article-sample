@@ -1,0 +1,35 @@
+.nav-links{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid;
+}
+
+.nav-list{
+  display: flex;
+  padding:2px;
+  margin-left: 5%;
+  
+}
+.nav-item{
+    justify-content: flex-start;
+    list-style: none;
+    padding: 13px;
+    font-size: 18px;
+
+}
+
+.navLinkClass{
+     margin:10px;
+}
+
+.nav-list >a.active{
+  background-color:rgb(139, 241, 255);
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-list >a{
+  color:black;
+  text-decoration: none;
+}
