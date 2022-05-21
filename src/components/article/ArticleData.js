@@ -3,7 +3,7 @@ import * as Constants from '../../constants';
 import './../../styles/article.scss'
 import ArticleElements from './ArticleElements';
 
-export default class Article extends Component {
+export default class ArticleData extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -18,22 +18,20 @@ export default class Article extends Component {
     }
  
     async getArticle() {
-        //Get the article from the provided api when component gets mounted
+        //Get the article from the provided api when component gets mounted. We can also use third party like axios
         try {
             this.state.loading = true;
             const articleUrl = Constants.articleUrl;
             let articleResponse = await fetch(articleUrl);
             if (articleResponse.ok) {
                 //retrieved article data is stored in the Component state
-                let articleJSON = await articleResponse.json();
-                this.setState({ article: articleJSON, loading: false });
+                let articleData = await articleResponse.json();
+                this.setState({ article: articleData, loading: false });
             } else {
-                console.log("The JSON could not be obtained");
-                this.setState({ error: true, loading: false });
+                this.setState({ error: true, errorMessage: "The JSON could not be obtained", loading: false });
             }
         } catch (error) {
-            console.log("There is a server error obtaining article JSON");
-            this.setState({ error: true,loading: false })
+            this.setState({ error: true, errorMessage: "There is a server error obtaining article JSON", loading: false })
         }
 
     }
@@ -43,7 +41,7 @@ export default class Article extends Component {
     return (
         <div className="articleDisplayedContent">
         <p className='articleName'>{this.state.loading? "Loading..": this.state.article?.name}</p>
-        <p className='errorMsg'>{this.state.error? this.state.error:''}</p>
+        <p className='errorMsg'>{this.state.error? this.state.errorMessage:''}</p>
          <ArticleElements elementsToRender={this.state.article?.elements}/>
          </div>
     )

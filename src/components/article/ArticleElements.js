@@ -20,24 +20,22 @@ export default class ArticleElements extends Component {
     let mainImgGroup = "";
 
     if(elementsToRender){
-      
         heading = elementsToRender?.heading?.value;
         author = elementsToRender?.author?.value;
         date = convertDatesToRequiredFormat(new Date(elementsToRender?.date?.value));
         body = elementsToRender.body?.values? elementsToRender.body?.values:[];
-        mainImgGroup = elementsToRender?.mainImage?.value?elementsToRender?.mainImage?.value:[];
+        mainImgGroup = elementsToRender?.mainImage?.value?elementsToRender?.mainImage?.value:{};
     }
 
     return (
        <div className='articleElements'>
            <h3 className="articleHeading">{heading}</h3>
-
            <div className="articlePublisherDetails">
-               <span className="publishedClass">by : </span> <i className='authorName'>  {author} </i>
-               on {date}
+               <span className="publishedClass">by : </span> 
+               <i className='authorName'> {author} </i> on {date}
            </div>
            <ArticleBody body={body}/>
-           <ArticleImages imageGroup = {mainImgGroup}/>
+           <ArticleImages imageGroupPassed = {mainImgGroup}/>
        </div>
     )
   }
