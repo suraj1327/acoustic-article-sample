@@ -32,8 +32,8 @@ export default class ArticleElements extends Component {
            {heading!="" ? <h3 className="articleHeading headingClass">{heading}</h3>:""}
            {author!="" ?
               <div className="articlePublisherDetails publisherDetails">
-                 <span className="publishedClass">by : </span> 
-                 <i className='authorName'> {author} </i> on {date}
+                 <span className="publishedClass">By  </span> 
+                 <i className='authorName'> {author} </i> - {date}
               </div> :""}
            {body.length>0 ? <ArticleBody body={body}/>:""}
            {mainImgGroup!="" ? <ArticleImages imageGroupPassed = {mainImgGroup}/> :""}
