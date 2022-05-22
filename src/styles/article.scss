@@ -34,7 +34,7 @@
         top: 10%;
         width: 50%;
         text-align: left;
-         left: 36%;
+         left: 38%;
     }
 }
 
@@ -42,11 +42,11 @@
 @media (min-width: 768px) and (max-width: 1079px){
     .articleHeading{
         font-size: 2rem;       
-        margin: 0px 50px 0 50px;
+        margin: 0px 50px 0 0px;
         top: 15%;
         text-align: left;
-        width: 50%;
-        left:40%;
+        width: max-content ;
+        left:45%;
       
     }
 }
@@ -60,7 +60,7 @@
 }
 }
 .articleElements{
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     display: flex;
 }
@@ -80,16 +80,16 @@
         top: 13%;
         margin-top: 4px;
         font-size: 0.7rem;
-        left: 25%;
+        left: 40%;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1079px){
     .articlePublisherDetails {
-        top: 22%;
+        top: 20%;
         margin-top: 4px;
         font-size: 0.8rem;
-        left: auto;
+        left: 40%;
     }
 }
 

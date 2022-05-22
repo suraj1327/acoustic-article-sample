@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { prepareImageUrlBasedOnTheScreenSize } from './imageUtils'
+import { prepareImageUrlBasedOnTheScreenSize } from './ImageUtils'
 import * as Constants from './../../constants'
 
 export default class ArticleImages extends Component {
