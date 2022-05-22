@@ -29,9 +29,9 @@ export default class ArticleElements extends Component {
 
     return (
        <div className="articleElements">
-           {heading!="" ? <h3 className="articleHeading">{heading}</h3>:""}
+           {heading!="" ? <h3 className="articleHeading headingClass">{heading}</h3>:""}
            {author!="" ?
-              <div className="articlePublisherDetails">
+              <div className="articlePublisherDetails publisherDetails">
                  <span className="publishedClass">by : </span> 
                  <i className='authorName'> {author} </i> on {date}
               </div> :""}
