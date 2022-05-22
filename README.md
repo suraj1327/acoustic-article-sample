@@ -1,3 +1,8 @@
+# acoustic-article-sample
+
+This sample is implemented using React to showcase a sample article obtained from a content management system.
+It demonstrates the various sections of the article in a simple layout
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,6 +33,14 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### npm install -g serve
+
+Install the serve package to deploy the generated build .It will give you a static server which can be used to serve this application.
+
+### serve -s build
+
+It serves the build folder
 
 ### `npm run eject`
 
