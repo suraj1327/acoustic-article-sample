@@ -5,24 +5,25 @@ import ArticleElements from './ArticleElements';
 
 export default class ArticleData extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            loading:false,
-            article:null,
-            error: false
+        this.state = {
+            loading: false,
+            article: null,
+            error: false,
+            errorMessage:""
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getArticle();
     }
- 
+
     async getArticle() {
+        const articleUrl = Constants.articleUrl;
         //Get the article from the provided api when component gets mounted. We can also use third party like axios
         try {
             this.state.loading = true;
-            const articleUrl = Constants.articleUrl;
             let articleResponse = await fetch(articleUrl);
             if (articleResponse.ok) {
                 //retrieved article data is stored in the Component state
@@ -38,14 +39,17 @@ export default class ArticleData extends Component {
     }
 
 
-  render() {
-    return (
-        <div className="articleDisplayedContent">
-        <p className='articleName'>{this.state.loading? "Loading..": this.state.article?.name}</p>
-        <p className='errorMsg'>{this.state.error? this.state.errorMessage:''}</p>
-         <ArticleElements elementsToRender={this.state.article?.elements}/>
-         </div>
-    )
-  }
+    render() {
+        return (
+            <>
+                {this.state.loading ? "Loading.." :
+                    <div className="articleDisplayedContent" id="articleData">
+                        <p className='articleName'>{this.state.article?.name}</p>
+                        <p className='errorMsg'>{this.state.error ? this.state.errorMessage : ''}</p>
+                        <ArticleElements elementsToRender={this.state.article?.elements} />
+                    </div>}
+            </>
+        )
+    }
 }
 

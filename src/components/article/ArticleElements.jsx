@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './../../styles/article.scss';
-import { convertDatesToRequiredFormat } from './../utils';
+import { convertDatesToRequiredFormat } from '../utils';
 import ArticleBody from './ArticleBody';
 import ArticleImages from './ArticleImages';
 
