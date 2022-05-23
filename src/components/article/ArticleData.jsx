@@ -9,26 +9,24 @@ export default class ArticleData extends Component {
         super(props)
         this.state = {
             loading: false,
-            article: null,
+            articleData: null,
             error: false,
             errorMessage:""
         }
     }
-
     componentDidMount() {
         this.getArticle();
     }
-
     async getArticle() {
         const articleUrl = Constants.articleUrl;
         //Get the article from the provided api when component gets mounted. We can also use third party like axios
         try {
             this.state.loading = true;
-            let articleResponse = await fetch(articleUrl);
+            let articleResponse = await fetch(articleUrl,{ method: 'GET' });
             if (articleResponse.ok) {
                 //retrieved article data is stored in the Component state
-                let articleData = await articleResponse.json();
-                this.setState({ article: articleData, loading: false });
+                const articleData = await articleResponse.json();
+                this.setState({ articleData: articleData, loading: false });
             } else {
                 this.setState({ error: true, errorMessage: "The article data could not be fetched due to an error", loading: false });
             }
@@ -44,9 +42,9 @@ export default class ArticleData extends Component {
             <>
                 {this.state.loading ? "Loading.." :
                     <div className="articleDisplayedContent" id="articleData">
-                        <p className='articleName'>{this.state.article?.name}</p>
-                        <p className='errorMsg'>{this.state.error ? this.state.errorMessage : ''}</p>
-                        <ArticleElements elementsToRender={this.state.article?.elements} />
+                        <p className='articleName'>{this.state.articleData?.name}</p>
+                        <p className='errorMsg' id="error">{this.state.error ? this.state.errorMessage : ''}</p>
+                        <ArticleElements elementsToRender={this.state.articleData?.elements} />
                     </div>}
             </>
         )
